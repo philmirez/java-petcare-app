@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<project name="IT306-Petcare-Java-App" basedir="." default="build">
+
+    <!-- Global properties to be used in the project -->
+    <property name="src.dir" value="src"/>
+    <property name="dist.dir" value="dist"/>
+
+    <!-- Clean the project by deleting all the compiled files (including the directory) -->
+    <target name="clean" description="Deletes the dist directory">
+        <delete dir="${dist.dir}" failonerror="false"/>
+    </target>
+
+    <!-- Compiles all the source files in src, and creates a dist directory with the compiled bytecode -->
+    <target name="compile" description="Compiles the task" depends="clean">
+        <mkdir dir="${dist.dir}"/>
+        <javac srcdir="${src.dir}" destdir="${dist.dir}"/>
+    </target>
+
+</project>
