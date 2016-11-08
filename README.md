@@ -15,6 +15,7 @@ Class details
 --------------
 
 This project will have the following classes (subject to change based on development):
+<br><br>
 1. ChainOwner.java - Used to instantiate Chain Owners, who are responsible for the upkeep of each Kroll Pet Care chain store. Chain Owners all have a first and last name, an email address and phone number, a username and password to log into the Administrative "back panel" (that we will implement through JOptionPane), and a store ID to which they belong.
 <br><br>
 2. Store.java - Used to instantiate a Store object that is used to store details about each Kroll Pet Care chain store. Each Store object has a store ID, an address, and hours of operation. As of now, we have created a basic implementation for this class, but it will be developed to fit the criteria needed for assigning a Performance Report to it, based on its activities and revenue generated.
