@@ -5,6 +5,8 @@ public class StorePerformanceReport extends Report {
 	String providedLeastServices;
 	Double weeklySales;
 	
+	// TODO Create constructor
+	
 	@Override
 	public void generateReport() {
 		// TODO Auto-generated method stub
@@ -31,7 +33,12 @@ public class StorePerformanceReport extends Report {
 		return weeklySales;
 	}
 
-	public void calculateWeeklySales(Double weeklySales) {
+	// TODO Dependent on Store Class storeWeeklySales variable 
+	/**
+	 * 
+	 * @param weeklySales
+	 */
+	public void setWeeklySales(Double weeklySales) {
 		this.weeklySales = weeklySales;
 	}
 
