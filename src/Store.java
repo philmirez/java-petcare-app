@@ -3,7 +3,7 @@ public class Store {
     private String storeID;
     private String storeAddress;
     private String storeHours;
-    // TODO please add a Store Total Weekly Sales variable
+    private double totalWeeklySales;
 
     /**
      * Default constructor for the Store Object
@@ -12,6 +12,7 @@ public class Store {
         this.storeID = "";
         this.storeAddress = "";
         this.storeHours = "";
+        this.totalWeeklySales = 0.00;
     }
 
     /**
@@ -29,6 +30,10 @@ public class Store {
         return this.storeHours;
     }
 
+    public double getTotalWeeklySales() {
+        return this.totalWeeklySales;
+    }
+
     /**
      * Mutator methods for the Store Object (assumes validation from an external input class)
      */
@@ -44,13 +49,17 @@ public class Store {
         this.storeHours = storeHours;
     }
 
+    public void setTotalWeeklySales(double totalWeeklySales) {
+        this.totalWeeklySales = totalWeeklySales;
+    }
+
     /**
      * Basic toString() method for the Store Object
      */
     public String toString() {
         String output = "--- Store Details ---";
         output += "\nStore ID: " + this.getStoreID() + "\nStore Address: " + this.getStoreAddress();
-        output += "Store Hours: " + this.getStoreHours() + "\n";
+        output += "Store Hours: " + this.getStoreHours() + "\nTotal weekly sales: $" + this.getTotalWeeklySales() + "\n";
         return output;
     }
 }

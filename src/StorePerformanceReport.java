@@ -43,7 +43,7 @@ public class StorePerformanceReport extends Report {
 	}
 
 	/**
-     * Basic toString() method for the ChainOwner Object
+     * Basic toString() method for the StorePerformanceReport Object
      */
     public String toString() {
         String output = "--- Store Performance Report ---";
