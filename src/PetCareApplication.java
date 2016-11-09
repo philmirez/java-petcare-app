@@ -1,10 +1,12 @@
-import javax.swing.JOptionPane;
+import javax.swing.*;
+
 
 public class PetCareApplication {
 
 	public static void main(String[] args) {
 		
-		prt("Welcome to the Kroll Pet Care Admin Panel.");
+		prt("Welcome to the Kroll Pet Care Admin Panel.", 0);
+		prt("Please enter your Username and Password to Log In.", 1);
 		/**
 		 * Create chain owner object
 		 */
@@ -47,9 +49,22 @@ public class PetCareApplication {
 		
 	}
 
-	public static void prt(String prt)
+	/**
+	 * 
+	 * @param prt
+	 * @param displayTypeFlag 0 - No Input Fields 1 - Two Input Fields
+	 */
+	public static void prt(String prt, int displayTypeFlag)
 	{
-	  displayMessage(prt);
+		if(displayTypeFlag==0)
+		{
+			displayNoIFMessage(prt);
+		}
+		else if(displayTypeFlag==1)
+		{
+			displayTwoIFMessage(prt);
+		}
+	  
 	}
 	  
 	/**
@@ -127,12 +142,42 @@ public class PetCareApplication {
 	    
 	    return stringToBeObtained;
 	}
-	public static void displayMessage(String message)
+	
+	/**
+	 * 
+	 * @param message
+	 */
+	public static void displayNoIFMessage(String message)
 	{
 	    JOptionPane.showMessageDialog(null, 
 	            message,
 	            "Pet Care App",
 	            JOptionPane.INFORMATION_MESSAGE);
+	}
+	
+	/**
+	 * 
+	 * @param message
+	 */
+	public static void displayTwoIFMessage(String message)
+	{
+		JTextField username = new JTextField();
+		JTextField password = new JPasswordField();
+		Object[] field = {
+		    "Username:", username,
+		    "Password:", password
+		};
+
+		int option = JOptionPane.showConfirmDialog(null, field, message, JOptionPane.OK_CANCEL_OPTION);
+		if (option == JOptionPane.OK_OPTION) {
+		    if (username.getText().equals("h") && password.getText().equals("h")) {
+		        System.out.println("Login successful");
+		    } else {
+		        System.out.println("login failed");
+		    }
+		} else {
+		    System.out.println("Login canceled");
+		}
 	}
 
 }
