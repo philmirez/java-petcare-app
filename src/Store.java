@@ -3,6 +3,7 @@ public class Store {
     private String storeID;
     private String storeAddress;
     private String storeHours;
+    // TODO please add a Store Total Weekly Sales variable
 
     /**
      * Default constructor for the Store Object
