@@ -4,16 +4,32 @@
     <!-- Global properties to be used in the project -->
     <property name="src.dir" value="src"/>
     <property name="dist.dir" value="dist"/>
-
+	<property name="build.dir" value="dist"/>
     <!-- Clean the project by deleting all the compiled files (including the directory) -->
     <target name="clean" description="Deletes the dist directory">
         <delete dir="${dist.dir}" failonerror="false"/>
     </target>
+	
+	<!-- Build the java files into .class files -->
+	<target name="build" description="compile .java source files">
+	   <mkdir dir="${build.dir}"/>
+	    <javac destdir="${build.dir}" source="1.8" target="1.8">
+	      <src path="${src.dir}"/>
+	    </javac>
+	  </target>
 
     <!-- Compiles all the source files in src, and creates a dist directory with the compiled bytecode -->
     <target name="compile" description="Compiles the task" depends="clean">
         <mkdir dir="${dist.dir}"/>
         <javac srcdir="${src.dir}" destdir="${dist.dir}"/>
     </target>
+	
+	<target name="run" description="run PetCareApplication.java">
+		<java fork="true" classname="PetCareApplication" >
+			<classpath>
+				<pathelement location="./dist"/>
+			</classpath>
+		</java>
+	</target>
 
 </project>
