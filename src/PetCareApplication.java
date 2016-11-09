@@ -7,10 +7,13 @@ public class PetCareApplication {
 		
 		prt("Welcome to the Kroll Pet Care Admin Panel.", 0);
 		prt("Please enter your Username and Password to Log In.", 1);
+		Object[] possibleValues = { "Performance Report", "Member Report" };
+		displayDropDownStoreMessage(possibleValues);
+		
 		/**
 		 * Create chain owner object
 		 */
-		ChainOwner chainOwner = new ChainOwner();
+		// ChainOwner chainOwner = new ChainOwner();
 		
 		/**
 		 * Create performance report object
@@ -83,15 +86,13 @@ public class PetCareApplication {
 	{
 	    try
 	    {
-	        if(variableName.equals("position rank"))
+	        if(variableName.equals("option"))
 	        {
 	            stringToBeObtained = JOptionPane.showInputDialog( 
 	                    null, 
 	                    "Please choose your position:\n"
-	                            + "1. Full Professor\n"
-	                            + "2. Associate Professor\n"
-	                            + "3. Assitant Professor\n"
-	                            + "4. Others\n", 
+	                            + "1. Try Again\n"
+	                            + "2. Sign Up\n", 
 	                    "Pet Care App",
 	                    JOptionPane.QUESTION_MESSAGE
 	                    );
@@ -143,6 +144,14 @@ public class PetCareApplication {
 	    return stringToBeObtained;
 	}
 	
+	public static String displayDropDownStoreMessage(Object[] possibleValues)
+	{
+		String selectedValue = (String) JOptionPane.showInputDialog(null,    
+		            "Choose one", "Input",   
+		            JOptionPane.INFORMATION_MESSAGE, null,
+		            possibleValues, possibleValues[0]);
+		return selectedValue;
+	}
 	/**
 	 * 
 	 * @param message
@@ -169,15 +178,65 @@ public class PetCareApplication {
 		};
 
 		int option = JOptionPane.showConfirmDialog(null, field, message, JOptionPane.OK_CANCEL_OPTION);
+		
 		if (option == JOptionPane.OK_OPTION) {
-		    if (username.getText().equals("h") && password.getText().equals("h")) {
-		        System.out.println("Login successful");
+		    
+			if (username.getText().equals("h") && password.getText().equals("h")) {
+		    
+				System.out.println("Login successful");
+				prt("You are currently logged in as Chain Owner for Store X.", 0);
+		        
 		    } else {
+		    	
 		        System.out.println("login failed");
+		        prt("Invalid Username/Password.", 0);
+		        String optionChosen = validateJOptionPane("option", 1);
+		        
+		        if(optionChosen.equals("1"))
+		        	prt("Please enter your Username and Password to Log In.", 1);
+		        else if(optionChosen.contentEquals("2"))
+		        {
+		        	prt("Please enter your details on the following screens to sign up as a Chain Owner.", 0);
+		        	Object[] possibleValues = { "Fairfax Store", "Centreville Store", "Sterling Store" };
+		        	displayDropDownStoreMessage(possibleValues);
+		        	displayOneIFMessage("Username: ");
+		        	displayOneIFMessage("Password: ");
+		        	prt("Sign up was successful!", 0);
+		        	prt("Please enter your Username and Password to Log In.", 1);
+		        }
+		        
 		    }
+			
 		} else {
-		    System.out.println("Login canceled");
+		    
+			System.out.println("Login canceled");
+			
 		}
 	}
 
+	/**
+	 * 
+	 * @param message
+	 */
+	public static String displayOneIFMessage(String message)
+	{
+		JTextField username = new JTextField();
+
+		Object[] field = {
+			    message, username
+			};
+
+		int option = JOptionPane.showConfirmDialog(null, field, message, JOptionPane.OK_CANCEL_OPTION);
+		
+		if (option == JOptionPane.OK_OPTION) {
+		    
+			return username.getText();
+			
+		} else {
+		    
+			System.out.println("Login canceled");
+			return "canceled";
+		}
+	}
+	
 }
