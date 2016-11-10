@@ -2,6 +2,14 @@
 
 <br>
 
+Build Instructions
+-------------
+## ant clean
+## ant compile
+## ant run
+### username: h
+### password: h
+
 Introduction
 -------------
 
