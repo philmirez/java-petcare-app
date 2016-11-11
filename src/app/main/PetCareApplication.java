@@ -58,8 +58,8 @@ public class PetCareApplication {
 	}
 	private static void loginPage(ArrayList<ChainOwner> chainOwnerList)
 	{
-		prt("Welcome to the Kroll Pet Care Admin Panel.", 0);
-		prt("Please enter your Username and Password to Log In.", 1);
+		prt(chainOwnerList, "Welcome to the Kroll Pet Care Admin Panel.", 0);
+		prt(chainOwnerList, "Please enter your Username and Password to Log In.", 1);
 		Object[] possibleValues = { "Performance Report", "Member Report" };
 		displayDropDownStoreMessage(possibleValues);
 
@@ -105,7 +105,7 @@ public class PetCareApplication {
 	 * @param prt
 	 * @param displayTypeFlag 0 - No Input Fields 1 - Two Input Fields
 	 */
-	private static void prt(String prt, int displayTypeFlag)
+	private static void prt(ArrayList<ChainOwner> chainOwnerList, String prt, int displayTypeFlag)
 	{
 		if(displayTypeFlag==0)
 		{
@@ -113,7 +113,7 @@ public class PetCareApplication {
 		}
 		else if(displayTypeFlag==1)
 		{
-			displayTwoIFMessage(prt);
+			displayTwoIFMessage(chainOwnerList, prt);
 		}
 	  
 	}
@@ -216,7 +216,7 @@ public class PetCareApplication {
 	 * 
 	 * @param message
 	 */
-	public static void displayTwoIFMessage(String message)
+	public static void displayTwoIFMessage(ArrayList<ChainOwner> chainOwnerList, String message)
 	{
 		JTextField username = new JTextField();
 		JTextField password = new JPasswordField();
@@ -226,34 +226,42 @@ public class PetCareApplication {
 		};
 
 		int option = JOptionPane.showConfirmDialog(null, field, message, JOptionPane.OK_CANCEL_OPTION);
-		
+		int size = chainOwnerList.size();
+		int i = 0;
 		if (option == JOptionPane.OK_OPTION) {
 		    
-			if (username.getText().equals("h") && password.getText().equals("h")) {
-		    
-				System.out.println("Login successful");
-				prt("You are currently logged in as Chain Owner for Store X.", 0);
-		        
-		    } else {
-		    	
-		        System.out.println("login failed");
-		        prt("Invalid Username/Password.", 0);
-		        String optionChosen = validateJOptionPane("option", 1);
-		        
-		        if(optionChosen.equals("1"))
-		        	prt("Please enter your Username and Password to Log In.", 1);
-		        else if(optionChosen.contentEquals("2"))
-		        {
-		        	prt("Please enter your details on the following screens to sign up as a Chain Owner.", 0);
-		        	Object[] possibleValues = { "Fairfax Store", "Centreville Store", "Sterling Store" };
-		        	displayDropDownStoreMessage(possibleValues);
-		        	displayOneIFMessage("Username: ");
-		        	displayOneIFMessage("Password: ");
-		        	prt("Sign up was successful!", 0);
-		        	prt("Please enter your Username and Password to Log In.", 1);
-		        }
-		        
-		    }
+			while(i<size)
+			{
+				String coUsername = chainOwnerList.get(i).getUsername();
+				String coPassword = chainOwnerList.get(i).getPassword();
+				
+				if (username.getText().equals(coUsername) && password.getText().equals(coPassword)) {
+			    
+					System.out.println("Login successful");
+					prt(chainOwnerList, "You are currently logged in as Chain Owner for Store X.", 0);
+			        
+			    } else {
+			    	
+			        System.out.println("login failed");
+			        prt(chainOwnerList, "Invalid Username/Password.", 0);
+			        String optionChosen = validateJOptionPane("option", 1);
+			        
+			        if(optionChosen.equals("1"))
+			        	prt(chainOwnerList, "Please enter your Username and Password to Log In.", 1);
+			        else if(optionChosen.contentEquals("2"))
+			        {
+			        	prt(chainOwnerList, "Please enter your details on the following screens to sign up as a Chain Owner.", 0);
+			        	Object[] possibleValues = { "Fairfax Store", "Centreville Store", "Sterling Store" };
+			        	displayDropDownStoreMessage(possibleValues);
+			        	displayOneIFMessage("Username: ");
+			        	displayOneIFMessage("Password: ");
+			        	prt(chainOwnerList, "Sign up was successful!", 0);
+			        	prt(chainOwnerList, "Please enter your Username and Password to Log In.", 1);
+			        }
+			        
+			    }
+				i++;
+			}
 			
 		} else {
 		    
