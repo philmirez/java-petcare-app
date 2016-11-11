@@ -230,8 +230,6 @@ public class PetCareApplication {
 		int i = 0;
 		if (option == JOptionPane.OK_OPTION) {
 		    
-			while(i<size)
-			{
 				String coUsername = chainOwnerList.get(i).getUsername();
 				String coPassword = chainOwnerList.get(i).getPassword();
 				
@@ -260,9 +258,6 @@ public class PetCareApplication {
 			        }
 			        
 			    }
-				i++;
-			}
-			
 		} else {
 		    
 			System.out.println("Login canceled");
