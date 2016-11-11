@@ -1,6 +1,8 @@
 package app.main;
 import java.io.*;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.*;
 
@@ -10,17 +12,14 @@ import org.apache.logging.log4j.Logger;
 
 // Import Google's gson classes
 import com.google.gson.*;
+import com.google.gson.reflect.TypeToken;
 
-import app.objects.ChainOwner;
+import app.objects.*;
+import app.utilities.Log;
 
 
 public class PetCareApplication {
 
-	/**
-	 * Define a static logger variable so that log4j2 can reference the Logger instance
-	 */
-	private static final Logger logger = LogManager.getLogger(PetCareApplication.class);
-	
 	public static void main(String[] args) {	
 		
 		/**
@@ -47,13 +46,13 @@ public class PetCareApplication {
 	        BufferedReader br = new BufferedReader(new FileReader("json/chainOwnerObjects.json"));
 	        JsonElement jsonElement = jsonParser.parse(br);
 
-	        //Create generic type
+	        
 	        Type type = new TypeToken<List<ChainOwner>>() {}.getType();
 	        return gson.fromJson(jsonElement, type);			
 		}
 		catch(Exception e)
 		{
-			logger.error(e.printStackTrace());
+			Log.error("Couldn't read chainOwnerObjects file found in the json directory. Exception " + e);
 		}
 		return existCOData;
 	}
