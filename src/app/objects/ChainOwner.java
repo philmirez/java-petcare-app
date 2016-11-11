@@ -1,6 +1,7 @@
 package app.objects;
 
 public class ChainOwner {
+	// add userid
     private String firstName;
     private String lastName;
     private String email;

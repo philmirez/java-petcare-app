@@ -1,0 +1,22 @@
+[
+  {
+    "userid": 1,
+    "firstname": "Phil",
+    "lastname": "Ramirez",
+    "email": "pramire6@masonlive.gmu.edu",
+    "phonenumber": "5407296856",
+    "username": "phil",
+    "password": "philiscool",
+    "storeid": 1
+  },
+  {
+    "userid": 2,
+    "firstname": "Usman",
+    "lastname": "Tahir",
+    "email": "utahir@masonlive.gmu.edu",
+    "phonenumber": "",
+    "username": "usman",
+    "password": "tahir",
+    "storeid": 1
+  }
+]
