@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 import javax.swing.*;
 
 
@@ -5,16 +7,27 @@ public class PetCareApplication {
 
 	public static void main(String[] args) {
 		
+		/**
+		 * Create a Chain Owner ArrayList
+		 */
+		ArrayList<ChainOwner> chainOwnerList = new ArrayList<ChainOwner>();
+		
+		/**
+		 * Read Existing Chain Owner Data from a File
+		 * Add read data into Chain Owner List
+		 */
+		chainOwnerList.addAll(readExistingChainOwnerData());
+		
+		loginPage(chainOwnerList);
+	}
+	
+	public static void loginPage(ArrayList<ChainOwner> chainOwnerList)
+	{
 		prt("Welcome to the Kroll Pet Care Admin Panel.", 0);
 		prt("Please enter your Username and Password to Log In.", 1);
 		Object[] possibleValues = { "Performance Report", "Member Report" };
 		displayDropDownStoreMessage(possibleValues);
-		
-		/**
-		 * Create chain owner object
-		 */
-		// ChainOwner chainOwner = new ChainOwner();
-		
+
 		/**
 		 * Create performance report object
 		 */
