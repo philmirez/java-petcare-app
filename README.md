@@ -2,13 +2,23 @@
 
 <br>
 
-Build Instructions
+Maven Build Instructions 
+-------------
+## mvn clean
+## mvn compile
+## mvn exec:java
+
+
+Ant Build Instructions (build.xml needs to updated so that it reflects refactored package structure)
 -------------
 ## ant clean
 ## ant compile
 ## ant run
-### username: h
-### password: h
+
+User Credentials
+-------------
+### See chainOwnerObjects.json file in the json directory for credentials
+
 
 Introduction
 -------------
