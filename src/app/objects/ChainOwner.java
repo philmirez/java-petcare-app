@@ -1,3 +1,4 @@
+package app.objects;
 
 public class ChainOwner {
     private String firstName;

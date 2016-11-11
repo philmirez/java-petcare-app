@@ -1,3 +1,4 @@
+package app.utilities;
 import javax.swing.JOptionPane;
 
 public class Utility {

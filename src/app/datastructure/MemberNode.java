@@ -1,3 +1,6 @@
+package app.datastructure;
+
+import app.objects.Member;
 
 public class MemberNode {
     private Member member;

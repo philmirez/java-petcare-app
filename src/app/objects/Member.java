@@ -1,3 +1,4 @@
+package app.objects;
 
 public class Member {
     private static final double MIN_TOTAL_FOR_DISCOUNT = 200.00;

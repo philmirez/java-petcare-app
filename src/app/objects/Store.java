@@ -1,3 +1,4 @@
+package app.objects;
 
 public class Store {
     private String storeID;

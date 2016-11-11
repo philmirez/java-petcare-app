@@ -1,11 +1,27 @@
+package app.main;
+import java.io.*;
 import java.util.ArrayList;
 
 import javax.swing.*;
 
+// Import Apache's log4j2 classes
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+// Import Google's gson classes
+import com.google.gson.*;
+
+import app.objects.ChainOwner;
+
 
 public class PetCareApplication {
 
-	public static void main(String[] args) {
+	/**
+	 * Define a static logger variable so that log4j2 can reference the Logger instance
+	 */
+	private static final Logger logger = LogManager.getLogger(PetCareApplication.class);
+	
+	public static void main(String[] args) {	
 		
 		/**
 		 * Create a Chain Owner ArrayList
@@ -20,8 +36,28 @@ public class PetCareApplication {
 		
 		loginPage(chainOwnerList);
 	}
-	
-	public static void loginPage(ArrayList<ChainOwner> chainOwnerList)
+	private static ArrayList<ChainOwner> readExistingChainOwnerData()
+	{
+		ArrayList<ChainOwner> existCOData = new ArrayList<ChainOwner>();
+		
+		Gson gson = new Gson();
+		JsonParser jsonParser = new JsonParser();
+		
+		try {
+	        BufferedReader br = new BufferedReader(new FileReader("json/chainOwnerObjects.json"));
+	        JsonElement jsonElement = jsonParser.parse(br);
+
+	        //Create generic type
+	        Type type = new TypeToken<List<ChainOwner>>() {}.getType();
+	        return gson.fromJson(jsonElement, type);			
+		}
+		catch(Exception e)
+		{
+			logger.error(e.printStackTrace());
+		}
+		return existCOData;
+	}
+	private static void loginPage(ArrayList<ChainOwner> chainOwnerList)
 	{
 		prt("Welcome to the Kroll Pet Care Admin Panel.", 0);
 		prt("Please enter your Username and Password to Log In.", 1);
@@ -70,7 +106,7 @@ public class PetCareApplication {
 	 * @param prt
 	 * @param displayTypeFlag 0 - No Input Fields 1 - Two Input Fields
 	 */
-	public static void prt(String prt, int displayTypeFlag)
+	private static void prt(String prt, int displayTypeFlag)
 	{
 		if(displayTypeFlag==0)
 		{
