@@ -8,7 +8,9 @@ public class ChainOwner {
     private String phoneNumber;
     private String username;
     private String password;
-    private String storeID;
+    private int storeID;
+    private String storeCity;
+    private boolean loginStatus;
 
     /**
      * Default constructor for the ChainOwner Object
@@ -20,7 +22,9 @@ public class ChainOwner {
         this.phoneNumber = "";
         this.username = "";
         this.password = "";
-        this.storeID = "";
+        this.storeID = 0;
+        this.storeCity = "";
+        this.loginStatus = false;
     }
 
     /**
@@ -50,8 +54,16 @@ public class ChainOwner {
         return this.password;
     }
 
-    public String getStoreID() {
+    public int getStoreID() {
         return this.storeID;
+    }
+    
+    public String getStoreCity() {
+        return this.storeCity;
+    }
+    
+    public boolean getLoginStatus() {
+        return this.loginStatus;
     }
 
     /**
@@ -81,8 +93,16 @@ public class ChainOwner {
         this.password = password;
     }
 
-    public void setStoreID(String storeID) {
+    public void setStoreID(int storeID) {
         this.storeID = storeID;
+    }
+    
+    public void setStoreCity(String storeCity) {
+        this.storeCity = storeCity;
+    }
+    
+    public void setLoginStatus(boolean loginStatus) {
+        this.loginStatus = loginStatus;
     }
 
     /**
@@ -91,8 +111,8 @@ public class ChainOwner {
     public String toString() {
         String output = "--- Chain Owner Information ---";
         output += "\nName: " + (this.getFirstName() + " " + this.getLastName());
-        output += "\nEmail: " + this.getEmail() + "\nPhone number: " + this.getPhoneNumber();
-        output += "\nStore ID: " + this.getStoreID() + "\n";
+        output += "\nUsername: " + this.getUsername() + "\nEmail: " + this.getEmail() + "\nPhone number: " + this.getPhoneNumber();
+        output += "\nStore ID: " + this.getStoreID() + "\nStore city: " + this.getStoreCity();
         return output;
     }
 }
