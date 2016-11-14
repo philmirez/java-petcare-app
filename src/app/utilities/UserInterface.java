@@ -22,7 +22,7 @@ public class UserInterface {
 	{
 		prt(chainOwnerList, "Welcome to the Kroll Pet Care Admin Panel.", 0);
 		
-		String message = "Please enter your Username and Password to Log In.";
+		String message = "Please enter your Username and Password to Log in.";
 		
 		JTextField username = new JTextField();
 		JTextField password = new JPasswordField();
@@ -45,19 +45,19 @@ public class UserInterface {
 				if (username.getText().equals(coUsername) && password.getText().equals(coPassword)) 
 				{
 			    
-					System.out.println("Login successful " + chainOwnerList.get(i));
+					System.out.println("Login successful: " + chainOwnerList.get(i));
 					chainOwnerList.get(i).setLoginStatus(true);
 					return chainOwnerList.get(i);
 			    } 
 				i++;
 			}
-			System.out.println("login failed");
+			System.out.println("Login failed.");
 			return chainOwnerList.get(0);
 	        
 	        
 		} else {
 		    
-			System.out.println("Login canceled");
+			System.out.println("Login cancelled.");
 			return chainOwnerList.get(0);
 			
 		}
@@ -115,7 +115,7 @@ public class UserInterface {
 	        {
 	            stringToBeObtained = JOptionPane.showInputDialog( 
 	                    null, 
-	                    "Please choose your position:\n"
+	                    "Please choose from the menu below:\n"
 	                            + "1. Try Again\n"
 	                            + "2. Sign Up\n", 
 	                    "Pet Care App",
@@ -149,7 +149,7 @@ public class UserInterface {
 	        else
 	            JOptionPane.showMessageDialog( 
 	                    null, 
-	                    "Sorry! The " + variableName +" was invalid. Please enter it again.\n",
+	                    "Sorry! The " + variableName + " was invalid. Please enter it again.\n",
 	                    "Pet Care App",
 	                    JOptionPane.ERROR_MESSAGE
 	                );
@@ -159,7 +159,7 @@ public class UserInterface {
 	    {
 	        JOptionPane.showMessageDialog( 
 	                null, 
-	                "Sorry! Numeric values only.\n",
+	                "Sorry! You must enter a numeric value.\n",
 	                "Pet Care App",
 	                    JOptionPane.ERROR_MESSAGE
 	            );
@@ -217,12 +217,12 @@ public class UserInterface {
 			        
 			    } else {
 			    	
-			        System.out.println("login failed");
+			        System.out.println("Login failed");
 			        prt(chainOwnerList, "Invalid Username/Password.", 0);
 			        String optionChosen = validateJOptionPane("option", 1);
 			        
 			        if(optionChosen.equals("1"))
-			        	prt(chainOwnerList, "Please enter your Username and Password to Log In.", 1);
+			        	prt(chainOwnerList, "Please enter your Username and Password to Log in.", 1);
 			        else if(optionChosen.contentEquals("2"))
 			        {
 			        	prt(chainOwnerList, "Please enter your details on the following screens to sign up as a Chain Owner.", 0);
@@ -231,13 +231,13 @@ public class UserInterface {
 			        	displayOneIFMessage("Username: ");
 			        	displayOneIFMessage("Password: ");
 			        	prt(chainOwnerList, "Sign up was successful!", 0);
-			        	prt(chainOwnerList, "Please enter your Username and Password to Log In.", 1);
+			        	prt(chainOwnerList, "Please enter your Username and Password to Log in.", 1);
 			        }
 			        
 			    }
 		} else {
 		    
-			System.out.println("Login canceled");
+			System.out.println("Login cancelled.");
 			
 		}
 	}
@@ -262,8 +262,8 @@ public class UserInterface {
 			
 		} else {
 		    
-			System.out.println("Login canceled");
-			return "canceled";
+			System.out.println("Login cancelled.");
+			return "Cancelled";
 		}
 	}
 	
