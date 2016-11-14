@@ -27,6 +27,14 @@ public class Utility {
         return input;
     }
 
+    public static String getFirstName(FIRST_NAME_MESSAGES) {
+        return getStringInput(FIRST_NAME_MESSAGES);
+    }
+
+    public static String getLastName(LAST_NAME_MESSAGES) {
+        return getStringInput(LAST_NAME_MESSAGES);
+    }
+
     private static boolean isEmpty(String string) {
         if (string.equals("")) {
             return true;
