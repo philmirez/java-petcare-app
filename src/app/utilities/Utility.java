@@ -26,7 +26,7 @@ public class Utility {
         } while (isEmpty(input));
         return input;
     }
-
+/*
     public static String getFirstName(FIRST_NAME_MESSAGES) {
         return getStringInput(FIRST_NAME_MESSAGES);
     }
@@ -34,7 +34,7 @@ public class Utility {
     public static String getLastName(LAST_NAME_MESSAGES) {
         return getStringInput(LAST_NAME_MESSAGES);
     }
-
+*/
     private static boolean isEmpty(String string) {
         if (string.equals("")) {
             return true;

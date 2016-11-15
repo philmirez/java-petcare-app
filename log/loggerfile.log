@@ -1,0 +1,1 @@
+2016-11-15 11:31:03,019 ERROR [Log] Couldn't read chainOwnerObjects file found in the json directory. Exception com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_ARRAY but was BEGIN_OBJECT at path $ 

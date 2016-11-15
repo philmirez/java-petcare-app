@@ -1,7 +1,7 @@
 package app.objects;
 
 public class ChainOwner {
-	// add userid
+	private int userID;
     private String firstName;
     private String lastName;
     private String email;
@@ -16,6 +16,7 @@ public class ChainOwner {
      * Default constructor for the ChainOwner Object
      */
     public ChainOwner() {
+    	this.userID = 0;
         this.firstName = "";
         this.lastName = "";
         this.email = "";
@@ -30,6 +31,10 @@ public class ChainOwner {
     /**
      * Accessor methods for the ChainOwner Object
      */
+    public int getUserID() {
+        return this.userID;
+    }
+    
     public String getFirstName() {
         return this.firstName;
     }
@@ -69,6 +74,10 @@ public class ChainOwner {
     /**
      * Mutator methods for the ChainOwner Object (assumes validation from an external input class)
      */
+    public void setUserID(int userID) {
+        this.userID = userID;
+    }
+    
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
