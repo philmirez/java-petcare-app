@@ -1,5 +1,19 @@
 package app.utilities;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.swing.JOptionPane;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
+import com.google.gson.reflect.TypeToken;
+
+import app.objects.ChainOwner;
 
 public class Utility {
     private static final String[] FIRST_NAME_MESSAGES = {"Please enter your first name.", "Please enter a valid name.", "Please enter a non-blank name."};
@@ -40,5 +54,50 @@ public class Utility {
             return true;
         }
         return false;
+    }
+    
+    public static ArrayList JSONreader(String JSON)
+    {
+		ArrayList existCOData = new ArrayList();
+		
+		Gson gson = new Gson();
+		JsonParser jsonParser = new JsonParser();
+		
+		try {
+	        BufferedReader br = new BufferedReader(new FileReader(JSON));
+	        JsonElement jsonElement = jsonParser.parse(br);
+
+	        
+	        Type type = new TypeToken<List<ChainOwner>>() {}.getType();
+	        
+	        br.close();
+	        return gson.fromJson(jsonElement, type);			
+		}
+		catch(Exception e)
+		{
+			Log.error("Couldn't read "+ JSON + " file found in the json directory. Exception " + e);
+		}
+		return existCOData;
+    }
+    
+    public static void JSONwriter(ArrayList list, String JSON)
+    {
+    	//1. Convert object to JSON string
+        Gson gson = new Gson();
+        String json = gson.toJson(list);
+        System.out.println(json);
+
+        //2. Convert object to JSON string and save into a file directly
+        try {
+        FileWriter writer = new FileWriter(JSON);
+
+            gson.toJson(list, writer);
+            writer.close();
+
+        } catch (Exception e) 
+        {
+            Log.error("Try writing to file: " + e);
+        }
+    		
     }
 }

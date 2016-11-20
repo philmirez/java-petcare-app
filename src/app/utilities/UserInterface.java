@@ -30,7 +30,8 @@ public class UserInterface {
 	ArrayList<ChainOwner> chainOwnerList = new ArrayList<ChainOwner>();
 	
 	public UserInterface() {
-		this.chainOwnerList.addAll(readExistingChainOwnerData());
+		//ArrayList<ChainOwner> chain= new ArrayList<ChainOwner>();
+		this.chainOwnerList.addAll(Utility.JSONreader("json/chainOwnerObjects.json"));
 		System.out.println("Size: " + this.chainOwnerList.size());
 	}
 	  
@@ -205,14 +206,6 @@ public class UserInterface {
 
 	}
 
-	/**
-	 * Display Administration Menu
-	 */
-	public void displayAdministrationMenu() {
-		// TODO Auto-generated method stub
-		
-	}
-
 	public String tryAgainOrSignUpPage()
 	{
 		
@@ -271,23 +264,8 @@ public class UserInterface {
     	
     	chainOwnerList.add(newSignUp);
     	
-    	//1. Convert object to JSON string
-        Gson gson = new Gson();
-        String json = gson.toJson(chainOwnerList);
-        System.out.println(json);
+    	Utility.JSONwriter(chainOwnerList, "json/chainOwnerObjects.json");
 
-        //2. Convert object to JSON string and save into a file directly
-        try {
-        FileWriter writer = new FileWriter("json/chainOwnerObjects.json");
-
-            gson.toJson(chainOwnerList, writer);
-            writer.close();
-
-        } catch (Exception e) 
-        {
-            Log.error("Try writing to file: " + e);
-        }
-    	
         alert("Sign up was successful!");
 	}
 	
@@ -369,35 +347,6 @@ public class UserInterface {
 			generatePerformanceReport();
 		else if(reportType.equals("Member Reports"))
 			generateMemberReport();
-	}
-
-	/**
-	 * 
-	 * @return
-	 */
-	public ArrayList<ChainOwner> readExistingChainOwnerData()
-	{
-		ArrayList<ChainOwner> existCOData = new ArrayList<ChainOwner>();
-		
-		Gson gson = new Gson();
-		JsonParser jsonParser = new JsonParser();
-		
-		try {
-	        BufferedReader br = new BufferedReader(new FileReader("json/chainOwnerObjects.json"));
-	        JsonElement jsonElement = jsonParser.parse(br);
-
-	        
-	        Type type = new TypeToken<List<ChainOwner>>() {}.getType();
-	        
-	        br.close();
-	        return gson.fromJson(jsonElement, type);			
-		}
-		catch(Exception e)
-		{
-			Log.error("Couldn't read chainOwnerObjects file found in the json directory. Exception " + e);
-		}
-		return existCOData;
-	}
-	
+	}	
 
 }
