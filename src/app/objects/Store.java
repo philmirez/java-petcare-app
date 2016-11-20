@@ -1,7 +1,7 @@
 package app.objects;
 
 public class Store {
-    private String storeID;
+    private int storeID;
     private String storeAddress;
     private String storeHours;
     private double totalWeeklySales;
@@ -10,7 +10,7 @@ public class Store {
      * Default constructor for the Store Object
      */
     public Store() {
-        this.storeID = "";
+        this.storeID = 0;
         this.storeAddress = "";
         this.storeHours = "";
         this.totalWeeklySales = 0.00;
@@ -19,7 +19,7 @@ public class Store {
     /**
      * Accessor methods for the Store Object
      */
-    public String getStoreID() {
+    public int getStoreID() {
         return this.storeID;
     }
 
@@ -38,7 +38,7 @@ public class Store {
     /**
      * Mutator methods for the Store Object (assumes validation from an external input class)
      */
-    public void setStoreID(String storeID) {
+    public void setStoreID(int storeID) {
         this.storeID = storeID;
     }
 

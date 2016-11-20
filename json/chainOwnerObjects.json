@@ -1,1 +1,26 @@
-[{"userID":1,"firstName":"Phil","lastName":"Ramirez","email":"pramire6@masonlive.gmu.edu","phoneNumber":"5407296856","username":"phil","password":"philiscool","storeID":1,"storeCity":"Fairfax","loginStatus":false},{"userID":2,"firstName":"Usman","lastName":"Tahir","email":"utahir@masonlive.gmu.edu","phoneNumber":"","username":"usman","password":"usmaniscool","storeID":1,"storeCity":"Fairfax","loginStatus":false},{"userID":3,"firstName":"tom","lastName":"tom","email":"tom","phoneNumber":"","username":"tom","password":"tom","storeID":0,"storeCity":"Fairfax Store","loginStatus":false}]
+[
+  {
+    "userID": 1,
+    "firstName": "Phil",
+    "lastName": "Ramirez",
+    "email": "pramire6@masonlive.gmu.edu",
+    "phoneNumber": "5407296856",
+    "username": "phil",
+    "password": "philiscool",
+    "storeID": 1,
+    "storeCity": "Fairfax",
+    "loginStatus" : false
+  },
+  {
+    "userID": 2,
+    "firstName": "Usman",
+    "lastName": "Tahir",
+    "email": "utahir@masonlive.gmu.edu",
+    "phoneNumber": "",
+    "username": "usman",
+    "password": "usmaniscool",
+    "storeID": 1,
+    "storeCity" : "Fairfax",
+    "loginStatus" : false
+  }
+]

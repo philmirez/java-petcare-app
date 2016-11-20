@@ -23,33 +23,15 @@ import app.objects.StorePerformanceReport;
 
 public class UserInterface {
 
-	private static final String[] reports = {"Store Performance", "Member Data"}; 
+	public static final String[] reports = {"Store Performance", "Member Data"}; 
 	/**
 	 * Create a Chain Owner ArrayList
 	 */
 	ArrayList<ChainOwner> chainOwnerList = new ArrayList<ChainOwner>();
 	
-	public UserInterface(ArrayList<ChainOwner> chainOwnerList) {
-		chainOwnerList.addAll(readExistingChainOwnerData());
-		this.chainOwnerList.addAll(chainOwnerList);
-	}
-
-	/**
-	 * 
-	 * @param prt
-	 * @param displayTypeFlag 0 - No Input Fields 1 - Two Input Fields
-	 */
-	public void prt(ArrayList<ChainOwner> chainOwnerList, String prt, int displayTypeFlag)
-	{
-		if(displayTypeFlag==0)
-		{
-			displayNoInputFieldsMessage(prt);
-		}
-		else if(displayTypeFlag==1)
-		{
-			displayTwoInputFieldsMessage(chainOwnerList, prt);
-		}
-	  
+	public UserInterface() {
+		this.chainOwnerList.addAll(readExistingChainOwnerData());
+		System.out.println("Size: " + this.chainOwnerList.size());
 	}
 	  
 	/**
@@ -59,7 +41,7 @@ public class UserInterface {
 	* @param dataTypeFlag 0 - String type, 1 - int type, 2 - double type
 	* @return
 	*/
-	private String validateJOptionPane(String variableName, int dataTypeFlag)
+	public String validateJOptionPane(String variableName, int dataTypeFlag)
 	{
 	    int variableFlag = 1;
 	    String stringToBeObtained = "";
@@ -126,7 +108,7 @@ public class UserInterface {
 	    return stringToBeObtained;
 	}
 	
-	public String displayDropDownStoreMessage(Object[] possibleValues)
+	public String selectDropDown(Object[] possibleValues)
 	{
 		String selectedValue = (String) JOptionPane.showInputDialog(null,    
 		            "Choose one", "Input",   
@@ -139,7 +121,7 @@ public class UserInterface {
 	 * 
 	 * @param message
 	 */
-	public void displayNoInputFieldsMessage(String message)
+	public void alert(String message)
 	{
 	    JOptionPane.showMessageDialog(null, 
 	            message,
@@ -172,62 +154,9 @@ public class UserInterface {
 		}
 	}
 	
-	/**
-	 * 
-	 * @param message
-	 */
-	public void displayTwoInputFieldsMessage(ArrayList<ChainOwner> chainOwnerList, String message)
-	{
-		JTextField username = new JTextField();
-		JTextField password = new JPasswordField();
-		Object[] field = {
-		    "Username:", username,
-		    "Password:", password
-		};
-
-		int option = JOptionPane.showConfirmDialog(null, field, message, JOptionPane.OK_CANCEL_OPTION);
-		int size = chainOwnerList.size();
-		int i = 0;
-		if (option == JOptionPane.OK_OPTION) {
-		    
-				String coUsername = chainOwnerList.get(i).getUsername();
-				String coPassword = chainOwnerList.get(i).getPassword();
-				
-				if (username.getText().equals(coUsername) && password.getText().equals(coPassword)) {
-			    
-					System.out.println("Login successful");
-					prt(chainOwnerList, "You are currently logged in as Chain Owner for Store X.", 0);
-			        
-			    } else {
-			    	
-			        System.out.println("Login failed");
-			        prt(chainOwnerList, "Invalid Username/Password.", 0);
-			        String optionChosen = validateJOptionPane("option", 1);
-			        
-			        if(optionChosen.equals("1"))
-			        	prt(chainOwnerList, "Please enter your Username and Password to Log in.", 1);
-			        else if(optionChosen.contentEquals("2"))
-			        {
-			        	prt(chainOwnerList, "Please enter your details on the following screens to sign up as a Chain Owner.", 0);
-			        	Object[] possibleValues = { "Fairfax Store", "Centreville Store", "Sterling Store" };
-			        	displayDropDownStoreMessage(possibleValues);
-			        	validateJOptionPane("Username: ", 0);
-			        	validateJOptionPane("Password: ", 0);
-			        	prt(chainOwnerList, "Sign up was successful!", 0);
-			        	prt(chainOwnerList, "Please enter your Username and Password to Log in.", 1);
-			        }
-			        
-			    }
-		} else {
-		    
-			System.out.println("Login cancelled.");
-			
-		}
-	}
-	
 	public ChainOwner loginPage(ArrayList<ChainOwner> chainOwnerList)
 	{
-		prt(chainOwnerList, "Welcome to the Kroll Pet Care Admin Panel.", 0);
+		alert("Welcome to the Kroll Pet Care Admin Panel.");
 		
 		String message = "Please enter your Username and Password to Log in.";
 		
@@ -279,16 +208,11 @@ public class UserInterface {
 	/**
 	 * Display Administration Menu
 	 */
-	private void displayAdministrationMenu() {
+	public void displayAdministrationMenu() {
 		// TODO Auto-generated method stub
 		
 	}
-	
-	public int reportsPage()
-	{
-		return 0;
-	}
-	
+
 	public String tryAgainOrSignUpPage()
 	{
 		
@@ -297,10 +221,34 @@ public class UserInterface {
 	}
 	
 	public void signUpPage(ArrayList<ChainOwner> chainOwnerList)
-	{
-		prt(chainOwnerList, "Please enter your details on the following screens to sign up as a Chain Owner.", 0);
+	{/*
+		JTextField field1 = new JTextField();
+		JTextField field2 = new JTextField();
+		JTextField field3 = new JTextField();
+		JTextField field4 = new JTextField();
+		JTextField field5 = new JTextField();
+		JTextField field6 = new JTextField();
+		Object[] message = {
+		    "Store city:", field1,
+		    "Username:", field2,
+		    "Password:", field3,
+		    "E-mail:", field4,
+		    "First name:", field5,
+		    "Last name:", field6
+		};
+		int option = JOptionPane.showConfirmDialog(parent, message, "Enter all your values", JOptionPane.OK_CANCEL_OPTION);
+		if (option == JOptionPane.OK_OPTION)
+		{
+		    String value1 = field1.getText();
+		    String value2 = field2.getText();
+		    String value3 = field3.getText();
+		    String value4 = field4.getText();
+		    String value5 = field5.getText();
+		    String value6 = field5.getText();
+		}*/
+		alert("Please enter your details on the following screens to sign up as a Chain Owner.");
     	Object[] possibleValues = {"Fairfax Store", "Centreville Store", "Sterling Store"};
-    	String storeCity = displayDropDownStoreMessage(possibleValues);
+    	String storeCity = selectDropDown(possibleValues);
     	String username = validateJOptionPane("Username: ", 0);
     	String password = validateJOptionPane("Password: ", 0);
     	String email = validateJOptionPane("email: ", 0);
@@ -329,25 +277,28 @@ public class UserInterface {
         System.out.println(json);
 
         //2. Convert object to JSON string and save into a file directly
-        try (FileWriter writer = new FileWriter("json/chainOwnerObjects.json")) {
+        try {
+        FileWriter writer = new FileWriter("json/chainOwnerObjects.json");
 
             gson.toJson(chainOwnerList, writer);
+            writer.close();
 
-        } catch (Exception e) {
+        } catch (Exception e) 
+        {
             Log.error("Try writing to file: " + e);
         }
     	
-    	prt(chainOwnerList, "Sign up was successful!", 0);
+        alert("Sign up was successful!");
 	}
 	
 	public void generatePerformanceReport()
 	{
-		
+		alert("Performance Reports");
 	}
 	
 	public void generateMemberReport()
 	{
-		
+		alert("Member Reports");
 	}
 	
 	public void loginProcess()
@@ -369,11 +320,6 @@ public class UserInterface {
 		boolean success = false;
 		
 		/**
-		 * Create a Chain Owner ArrayList
-		 */
-		ArrayList<ChainOwner> chainOwnerList = new ArrayList<ChainOwner>();
-		
-		/**
 		 * Read Existing Chain Owner Data from a File
 		 * Add read data into Chain Owner List
 		 
@@ -389,11 +335,11 @@ public class UserInterface {
 		
 		if(success == true)
 		{
-			prt(chainOwnerList, "You are currently logged in as " + chainOwner.getUsername() + " for Store " + chainOwner.getStoreCity(), 0);			
+			alert("You are currently logged in as " + chainOwner.getUsername() + " for Store " + chainOwner.getStoreCity());			
 		}
 		else
 		{
-			prt(chainOwnerList, "Invalid Username/Password.", 0);
+			alert("Invalid Username/Password.");
 			tryAgainOrSignUpResponse = tryAgainOrSignUpPage();
 	        
 	        if(tryAgainOrSignUpResponse.equals("1"))
@@ -416,11 +362,12 @@ public class UserInterface {
 		 *  1 = Performance Report
 		 *  2 = Member Report
 		 */
-		int reportType = 0;
-		reportType = reportsPage();
-		if(reportType==1)
+		Object[] possibleValues = {"Store Performance Reports", "Member Reports"};
+		String reportType = selectDropDown(possibleValues);
+		
+		if(reportType.equals("Store Performance Reports"))
 			generatePerformanceReport();
-		else if(reportType==2)
+		else if(reportType.equals("Member Reports"))
 			generateMemberReport();
 	}
 
@@ -428,7 +375,7 @@ public class UserInterface {
 	 * 
 	 * @return
 	 */
-	private ArrayList<ChainOwner> readExistingChainOwnerData()
+	public ArrayList<ChainOwner> readExistingChainOwnerData()
 	{
 		ArrayList<ChainOwner> existCOData = new ArrayList<ChainOwner>();
 		
@@ -441,6 +388,8 @@ public class UserInterface {
 
 	        
 	        Type type = new TypeToken<List<ChainOwner>>() {}.getType();
+	        
+	        br.close();
 	        return gson.fromJson(jsonElement, type);			
 		}
 		catch(Exception e)

@@ -1,26 +1,26 @@
 [
   {
-    "userid": 1,
-    "firstname": "Phil",
-    "lastname": "Ramirez",
+    "userID": 1,
+    "firstName": "Phil",
+    "lastName": "Ramirez",
     "email": "pramire6@masonlive.gmu.edu",
-    "phonenumber": "5407296856",
+    "phoneNumber": "5407296856",
     "username": "phil",
     "password": "philiscool",
-    "storeid": 1,
-    "storecity": "Fairfax",
-    "loginstatus" : false
+    "storeID": 1,
+    "storeCity": "Fairfax",
+    "loginStatus" : false
   },
   {
-    "userid": 2,
-    "firstname": "Usman",
-    "lastname": "Tahir",
+    "userID": 2,
+    "firstName": "Usman",
+    "lastName": "Tahir",
     "email": "utahir@masonlive.gmu.edu",
-    "phonenumber": "",
+    "phoneNumber": "",
     "username": "usman",
     "password": "usmaniscool",
-    "storeid": 1,
-    "storecity" : "Fairfax",
-    "loginstatus" : false
+    "storeID": 1,
+    "storeCity" : "Fairfax",
+    "loginStatus" : false
   }
 ]
