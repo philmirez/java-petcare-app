@@ -105,8 +105,8 @@ public class Utility {
     		
     }
 
-    public static Hashmap<Integer, TransactionObject> convertTransactionCSVToHashMap(String filePath) {
-        HashMap<Integer, TransactionObject> transactionObjectHashMap = new HashMap<Integer, TransactionObject>();
+    public static Hashmap<String, TransactionObject> convertTransactionCSVToHashMap(String filePath) {
+        HashMap<String, TransactionObject> transactionObjectHashMap = new HashMap<String, TransactionObject>();
         BufferedReader bufferedReader = null;
         String line = "";
         String delimiter = ",";
@@ -115,11 +115,12 @@ public class Utility {
             bufferedReader = new BufferedReader(new FileReader(filePath));
             while ((line = bufferedReader.readLine()) != null) {
                 String[] transactionData = line.split(delimiter);
-                int storeID = Integer.parseInt(transactionData[0]);
-                int memberID = Integer.parseInt(transactionData[1]);
-                double amountSpent = Double.parseDouble(transactionData[2]);
+                String transactionID = transactionData[0];
+                int storeID = Integer.parseInt(transactionData[1]);
+                int memberID = Integer.parseInt(transactionData[2]);
+                double amountSpent = Double.parseDouble(transactionData[3]);
                 
-                TransactionObject t = new TransactionObject(storeID, memberID, amountSpent);
+                TransactionObject t = new TransactionObject(transactionID, storeID, memberID, amountSpent);
                 transactionObjectHashMap.put(t.getTransactionID(), t);
             }
         } catch (Exception e) {
