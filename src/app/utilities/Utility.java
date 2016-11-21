@@ -3,8 +3,12 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.List;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.*;
+
 
 import javax.swing.JOptionPane;
 
@@ -99,5 +103,9 @@ public class Utility {
             Log.error("Try writing to file: " + e);
         }
     		
+    }
+
+    public static Hashmap<Integer, TransactionObject> convertTransactionCSVToHashMap(String filePath) {
+        
     }
 }
