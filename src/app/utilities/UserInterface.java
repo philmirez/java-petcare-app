@@ -19,6 +19,8 @@ import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 
 import app.objects.ChainOwner;
+import app.objects.Member;
+import app.objects.Store;
 import app.objects.Report;
 import app.objects.StorePerformanceReport;
 import app.objects.TransactionObject;
@@ -30,8 +32,8 @@ public class UserInterface {
 	 * Create a Chain Owner ArrayList
 	 */
 	ArrayList<ChainOwner> chainOwnerList = new ArrayList<ChainOwner>();
-	ArrayList<ChainOwner> memberList = new ArrayList<ChainOwner>();
-	ArrayList<ChainOwner> storeList = new ArrayList<ChainOwner>();
+	ArrayList<Member> memberList = new ArrayList<Member>();
+	ArrayList<Store> storeList = new ArrayList<Store>();
 	
 	public UserInterface() {
 		//ArrayList<ChainOwner> chain= new ArrayList<ChainOwner>();
@@ -278,6 +280,7 @@ public class UserInterface {
 	public void generatePerformanceReport(HashMap<String, TransactionObject> memberTransactions)
 	{
 		alert("Generating Performance Reports \n" + memberTransactions.get("FF283066"));
+		// TODO Display performance reports from highest to smallest sales
 		
 	}
 	
