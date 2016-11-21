@@ -6,6 +6,7 @@ import java.io.FileWriter;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.swing.JOptionPane;
@@ -20,6 +21,7 @@ import com.google.gson.reflect.TypeToken;
 import app.objects.ChainOwner;
 import app.objects.Report;
 import app.objects.StorePerformanceReport;
+import app.objects.TransactionObject;
 
 public class UserInterface {
 
@@ -269,14 +271,15 @@ public class UserInterface {
         alert("Sign up was successful!");
 	}
 	
-	public void generatePerformanceReport()
+	public void generatePerformanceReport(HashMap<String, TransactionObject> memberTransactions)
 	{
-		alert("Performance Reports");
+		alert("Generating Performance Reports \n" + memberTransactions.get("FF283066"));
+		
 	}
 	
-	public void generateMemberReport()
+	public void generateMemberReport(HashMap<String, TransactionObject> memberTransactions)
 	{
-		alert("Member Reports");
+		alert("Generating Member Reports \n" + memberTransactions.get("FF283066"));
 	}
 	
 	public void loginProcess()
@@ -343,10 +346,12 @@ public class UserInterface {
 		Object[] possibleValues = {"Store Performance Reports", "Member Reports"};
 		String reportType = selectDropDown(possibleValues);
 		
+		HashMap<String, TransactionObject> memberTransactions = Utility.convertTransactionCSVToHashMap("csv/member_transactions.csv");
+		
 		if(reportType.equals("Store Performance Reports"))
-			generatePerformanceReport();
+			generatePerformanceReport(memberTransactions);
 		else if(reportType.equals("Member Reports"))
-			generateMemberReport();
+			generateMemberReport(memberTransactions);
 	}	
 
 }
