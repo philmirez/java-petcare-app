@@ -1,3 +1,5 @@
+package app.objects;
+
 
 public class TransactionObject {
 
@@ -48,5 +50,7 @@ public class TransactionObject {
   public String toString() {
     String output = "Transaction ID: " + this.transactionID + "\nStore ID: " + this.storeID;
     output += "\nMember ID: " + this.memberID + "\nAmount spent: $" + this.amountSpent;
+    
+    return output;
   }
 }
