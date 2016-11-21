@@ -115,13 +115,15 @@ public class Utility {
             bufferedReader = new BufferedReader(new FileReader(filePath));
             while ((line = bufferedReader.readLine()) != null) {
                 String[] transactionData = line.split(delimiter);
-                String transactionID = transactionData[0];
-                int storeID = Integer.parseInt(transactionData[1]);
-                int memberID = Integer.parseInt(transactionData[2]);
-                double amountSpent = Double.parseDouble(transactionData[3]);
-                
-                TransactionObject t = new TransactionObject(transactionID, storeID, memberID, amountSpent);
-                transactionObjectHashMap.put(t.getTransactionID(), t);
+                if (!(transactionData[0].indexOf("t")) == 0) {
+                    String transactionID = transactionData[0];
+                    int storeID = Integer.parseInt(transactionData[1]);
+                    int memberID = Integer.parseInt(transactionData[2]);
+                    double amountSpent = Double.parseDouble(transactionData[3]);
+                    
+                    TransactionObject t = new TransactionObject(transactionID, storeID, memberID, amountSpent);
+                    transactionObjectHashMap.put(t.getTransactionID(), t);
+                }
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error.");
