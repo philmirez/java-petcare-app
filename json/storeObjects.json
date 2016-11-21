@@ -1,0 +1,32 @@
+[
+  {
+    "storeID" : 1,
+    "storeAddress" : "Fairfax Store",
+    "storeHours" : "9:00 AM - 9:00 PM",
+    "totalWeeklySales" : 0
+   },
+  {
+    "storeID" : 2,
+    "storeAddress" : "Centreville Store",
+    "storeHours" : "10:00 AM - 11:00 PM",
+    "totalWeeklySales" : 0
+   },
+  {
+    "storeID" : 3,
+    "storeAddress" : "Sterling Store",
+    "storeHours" : "8:00 AM - 10:00 PM",
+    "totalWeeklySales" : 0
+   },
+  {
+    "storeID" : 4,
+    "storeAddress" : "Alexandria Store",
+    "storeHours" : "8:00 AM - 10:00 PM",
+    "totalWeeklySales" : 0
+   },
+  {
+    "storeID" : 5,
+    "storeAddress" : "Arlington Store",
+    "storeHours" : "9:00 AM - 9:00 PM",
+    "totalWeeklySales" : 0
+   }
+]
