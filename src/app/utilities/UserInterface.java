@@ -30,10 +30,14 @@ public class UserInterface {
 	 * Create a Chain Owner ArrayList
 	 */
 	ArrayList<ChainOwner> chainOwnerList = new ArrayList<ChainOwner>();
+	ArrayList<ChainOwner> memberList = new ArrayList<ChainOwner>();
+	ArrayList<ChainOwner> storeList = new ArrayList<ChainOwner>();
 	
 	public UserInterface() {
 		//ArrayList<ChainOwner> chain= new ArrayList<ChainOwner>();
 		this.chainOwnerList.addAll(Utility.JSONreader("json/chainOwnerObjects.json"));
+		this.memberList.addAll(Utility.JSONreader("json/memberObjects.json"));
+		this.storeList.addAll(Utility.JSONreader("json/storeObjects.json"));
 		System.out.println("Size: " + this.chainOwnerList.size());
 	}
 	  
@@ -280,6 +284,7 @@ public class UserInterface {
 	public void generateMemberReport(HashMap<String, TransactionObject> memberTransactions)
 	{
 		alert("Generating Member Reports \n" + memberTransactions.get("FF283066"));
+		
 	}
 	
 	public void loginProcess()
