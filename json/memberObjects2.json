@@ -1,0 +1,102 @@
+[
+  {
+    "memberID" : 1,
+    "firstName" : "Larry",
+    "lastName" : "Page",
+    "email" : "larrypage@gmail.com",
+    "phoneNumber" : "5552349090",
+    "totalSpent" : 0,
+    "discountAmount" : 0,
+    "hasActiveDiscount" : false
+   },
+  {
+    "memberID" : 2,
+    "firstName" : "Bill",
+    "lastName" : "Gates",
+    "email" : "williamgates@outlook.com",
+    "phoneNumber" : "5558768989",
+    "totalSpent" : 0,
+    "discountAmount" : 0,
+    "hasActiveDiscount" : false
+   },
+  {
+    "memberID" : 3,
+    "firstName" : "Steve",
+    "lastName" : "Jobs",
+    "email" : "stevenjobs@icloud.com",
+    "phoneNumber" : "5553436767",
+    "totalSpent" : 0,
+    "discountAmount" : 0,
+    "hasActiveDiscount" : false
+   },
+  {
+    "memberID" : 4,
+    "firstName" : "Hank",
+    "lastName" : "Hill",
+    "email" : "hankhill@propane.com",
+    "phoneNumber" : "5553435454",
+    "totalSpent" : 0,
+    "discountAmount" : 0,
+    "hasActiveDiscount" : false
+   },
+  {
+    "memberID" : 5,
+    "firstName" : "Homer",
+    "lastName" : "Simpson",
+    "email" : "homersimpson@springfieldpower.com",
+    "phoneNumber" : "5552326565",
+    "totalSpent" : 0,
+    "discountAmount" : 0,
+    "hasActiveDiscount" : false
+   },
+  {
+    "memberID" : 6,
+    "firstName" : "Peter",
+    "lastName" : "Parker",
+    "email" : "peterparker@university.edu",
+    "phoneNumber" : "5552120505",
+    "totalSpent" : 0,
+    "discountAmount" : 0,
+    "hasActiveDiscount" : false
+   },
+  {
+    "memberID" : 7,
+    "firstName" : "Bruce",
+    "lastName" : "Banner",
+    "email" : "brucebanner@university.edu",
+    "phoneNumber" : "5554325656",
+    "totalSpent" : 0,
+    "discountAmount" : 0,
+    "hasActiveDiscount" : false
+   },
+  {
+    "memberID" : 8,
+    "firstName" : "John",
+    "lastName" : "Connor",
+    "email" : "johnconnor@skynet.com",
+    "phoneNumber" : "5554342243",
+    "totalSpent" : 0,
+    "discountAmount" : 0,
+    "hasActiveDiscount" : false
+   },
+  {
+    "memberID" : 9,
+    "firstName" : "Alex",
+    "lastName" : "Murphy",
+    "email" : "alexmurphy@ocp.com", 
+    "phoneNumber" : "5554345231",
+    "totalSpent" : 0,
+    "discountAmount" : 0,
+    "hasActiveDiscount" : false
+   },
+  {
+    "memberID" : 10,
+    "firstName" : "Eddie",
+    "lastName" : "Guerrero",
+    "email" :  "eddieguerrero@wwe.com",
+    "phoneNumber" : "5553423454",
+    "totalSpent" : 0,
+    "discountAmount" : 0,
+    "hasActiveDiscount" : false
+   }
+]
