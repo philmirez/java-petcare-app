@@ -1,20 +1,19 @@
 
 public class TransactionObject {
-  private static int globalTransactionID = 0;
 
-  private int transactionID;
+  private String transactionID;
   private int storeID;
   private int memberID;
   private double amountSpent;
 
-  public TransactionObject(int storeID, int memberID, double amountSpent) {
-    this.transactionID = ++globalTransactionID;
+  public TransactionObject(String transactionID, int storeID, int memberID, double amountSpent) {
+    this.transactionID = transactionID;
     this.storeID = storeID;
     this.memberID = memberID;
     this.amountSpent = amountSpent;
   }
 
-  public int getTransactionID() {
+  public String getTransactionID() {
     return this.transactionID;
   }
 
@@ -30,8 +29,8 @@ public class TransactionObject {
     return this.amountSpent;
   }
 
-  public static int getGlobalTransactionID() {
-    return globalTransactionID;
+  public void setTransactionID(String transactionID) {
+    this.transactionID = transactionID;
   }
 
   public void setStoreID(int storeID) {
