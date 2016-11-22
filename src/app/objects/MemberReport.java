@@ -6,13 +6,9 @@ import java.util.HashMap;
 import app.utilities.Utility;
 
 public class MemberReport extends Report{
-
-	ArrayList<Member> memberList = new ArrayList<Member>();
-	ArrayList<Store> storeList = new ArrayList<Store>();
 	
 	public MemberReport() {
-		this.memberList.addAll(Utility.JSONreader("json/memberObjects.json"));
-		this.storeList.addAll(Utility.JSONreader("json/storeObjects.json"));
+
 	}
 	
 	@Override

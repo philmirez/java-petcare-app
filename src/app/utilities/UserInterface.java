@@ -19,9 +19,6 @@ import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 
 import app.objects.ChainOwner;
-import app.objects.MemberReport;
-import app.objects.StorePerformanceReport;
-import app.objects.TransactionObject;
 
 public class UserInterface {
 	

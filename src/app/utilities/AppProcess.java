@@ -6,29 +6,40 @@ import java.util.HashMap;
 import java.util.List;
 
 import app.objects.ChainOwner;
+import app.objects.Member;
 import app.objects.MemberReport;
+import app.objects.Store;
 import app.objects.StorePerformanceReport;
 import app.objects.TransactionObject;
 
 public class AppProcess {
 
 	UserInterface appUI;
+	ChainOwner chainOwner;
+	ArrayList<ChainOwner> chainOwnerList; 
+	ArrayList<Member> memberList;
+	ArrayList<Store> storeList;
+	HashMap<String, TransactionObject> memberTransactions;
 	
 	public AppProcess() {
 		appUI = new UserInterface();
+		chainOwner = new ChainOwner();
+		chainOwnerList = new ArrayList<ChainOwner>();
+		memberList = new ArrayList<Member>();
+		storeList = new ArrayList<Store>();
+		memberTransactions = new HashMap<String, TransactionObject>();
 	}
 	
 	public void readDataProcess()
 	{
-		
+		chainOwnerList.addAll(Utility.JSONreader("json/chainOwnerObjects.json"));
+		memberList.addAll(Utility.JSONreader("json/memberObjects.json"));
+		storeList.addAll(Utility.JSONreader("json/storeObjects.json"));
+		memberTransactions = Utility.convertTransactionCSVToHashMap("csv/member_transactions.csv");
 	}
 	
 	public void loginProcess()
-	{
-		ArrayList<ChainOwner> chainOwnerList = new ArrayList<ChainOwner>();
-		chainOwnerList.addAll(Utility.JSONreader("json/chainOwnerObjects.json"));
-		
-		ChainOwner chainOwner = new ChainOwner();
+	{		 
 		
 		/**
 		 * tryAgainOrSignUpResponse
@@ -88,9 +99,7 @@ public class AppProcess {
 		 */
 		Object[] possibleValues = {"Store Performance Reports", "Member Reports"};
 		String reportType = appUI.selectDropDown(possibleValues);
-		
-		HashMap<String, TransactionObject> memberTransactions = Utility.convertTransactionCSVToHashMap("csv/member_transactions.csv");
-		
+				
 		if(reportType.equals("Store Performance Reports"))
 		{
 			StorePerformanceReport storePerformance = new StorePerformanceReport();

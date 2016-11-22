@@ -10,14 +10,11 @@ public class StorePerformanceReport extends Report {
 	String providedMostServices;
 	String providedLeastServices;
 	Double weeklySales;
-	ArrayList<Member> memberList = new ArrayList<Member>();
-	ArrayList<Store> storeList = new ArrayList<Store>();
-	
+
 	// TODO Create constructor
 	public StorePerformanceReport()
 	{
-		this.memberList.addAll(Utility.JSONreader("json/memberObjects.json"));
-		this.storeList.addAll(Utility.JSONreader("json/storeObjects.json"));
+
 	}
 	@Override
 	public void generateReport(HashMap<String, TransactionObject> memberTransactions) {
@@ -52,6 +49,10 @@ public class StorePerformanceReport extends Report {
 	 */
 	public void setWeeklySales(Double weeklySales) {
 		this.weeklySales = weeklySales;
+	}
+	
+	public void calculateWeeklySales(Double amountSpent) {
+		
 	}
 
 	/**
