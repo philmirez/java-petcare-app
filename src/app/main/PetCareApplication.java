@@ -1,14 +1,15 @@
 package app.main;
-import app.utilities.UserInterface;
+import app.utilities.AppProcess;
 
 
 public class PetCareApplication {
 	
 	public static void main(String[] args) 
 	{	
-		UserInterface appUI = new UserInterface();
-		appUI.loginProcess();
-		appUI.reportProcess();
+		AppProcess app = new AppProcess();
+		app.readDataProcess();
+		app.loginProcess();
+		app.reportProcess();
 	}
 
 
