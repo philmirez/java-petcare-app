@@ -36,6 +36,8 @@ public class AppProcess {
 		memberList.addAll(Utility.JSONreader("json/memberObjects.json"));
 		storeList.addAll(Utility.JSONreader("json/storeObjects.json"));
 		memberTransactions = Utility.convertTransactionCSVToHashMap("csv/member_transactions.csv");
+		
+
 	}
 	
 	public void loginProcess()
@@ -102,13 +104,20 @@ public class AppProcess {
 				
 		if(reportType.equals("Store Performance Reports"))
 		{
-			StorePerformanceReport storePerformance = new StorePerformanceReport();
+			calculateSalesProcess();
+			String address = storeList.get(1).getStoreAddress();
+			System.out.println("Store : " + storeList);
+			// send in storeID and the store list
+			StorePerformanceReport storePerformance = new StorePerformanceReport(chainOwner.getStoreID(), this.storeList);
 			storePerformance.generateReport(memberTransactions);
+			appUI.alert(storePerformance.toString());
 		}
 		else if(reportType.equals("Member Reports"))
 		{
+			calculateDiscountProcess();
 			MemberReport memberActivity = new MemberReport();
 			memberActivity.generateReport(memberTransactions);
+			appUI.alert(memberActivity.toString());
 		}
 	}
 	
@@ -169,5 +178,26 @@ public class AppProcess {
     	appUI.alert("Sign up was successful!");
 		
 	}
-
+	
+	public void calculateSalesProcess() {
+		
+		System.out.println((storeList.size()));
+		System.out.println((storeList.get(0)));
+		System.out.println((memberTransactions.get("CD290285")));
+		
+		
+		
+		double amountSpent = 0;
+		Store storeX = new Store();
+		for (String key: memberTransactions.keySet()) {
+			storeX = storeList.get(memberTransactions.get(key).getStoreID()-1); 
+			amountSpent = memberTransactions.get(key).getAmountSpent();
+			storeX.addToTotalWeeklySales(amountSpent);
+		}
+		
+	}
+	
+	public void calculateDiscountProcess() {
+		
+	}
 }

@@ -72,8 +72,15 @@ public class Utility {
 	        BufferedReader br = new BufferedReader(new FileReader(JSON));
 	        JsonElement jsonElement = jsonParser.parse(br);
 
+	        Type type = null;
 	        
-	        Type type = new TypeToken<List<ChainOwner>>() {}.getType();
+	        if(JSON == "json/chainOwnerObjects.json")
+	        	type = new TypeToken<List<ChainOwner>>() {}.getType();
+	        else if(JSON == "json/memberObjects.json")
+				type = new TypeToken<List<Member>>() {}.getType();
+			else if(JSON == "json/storeObjects.json")
+				type = new TypeToken<List<Store>>() {}.getType();
+	        
 	        
 	        br.close();
 	        return gson.fromJson(jsonElement, type);			

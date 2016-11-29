@@ -1,9 +1,10 @@
 package app.objects;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public abstract class Report {
 
-	abstract public void generateReport(HashMap<String, TransactionObject> memberTransactions);
+	public abstract void generateReport(HashMap<String, TransactionObject> memberTransactions);;
 
 }

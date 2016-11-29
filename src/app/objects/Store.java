@@ -53,6 +53,10 @@ public class Store {
     public void setTotalWeeklySales(double totalWeeklySales) {
         this.totalWeeklySales = totalWeeklySales;
     }
+    
+    public void addToTotalWeeklySales(double amountSpent) {
+        this.totalWeeklySales += amountSpent;
+    }
 
     /**
      * Basic toString() method for the Store Object
@@ -60,7 +64,7 @@ public class Store {
     public String toString() {
         String output = "--- Store Details ---";
         output += "\nStore ID: " + this.getStoreID() + "\nStore Address: " + this.getStoreAddress();
-        output += "Store Hours: " + this.getStoreHours() + "\nTotal weekly sales: $" + this.getTotalWeeklySales() + "\n";
+        output += "\nStore Hours: " + this.getStoreHours() + "\nTotal weekly sales: $" + this.getTotalWeeklySales() + "\n";
         return output;
     }
 }

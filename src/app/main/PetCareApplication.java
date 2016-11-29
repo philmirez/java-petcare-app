@@ -3,7 +3,7 @@ import app.utilities.AppProcess;
 
 
 public class PetCareApplication {
-	
+
 	public static void main(String[] args) 
 	{	
 		AppProcess app = new AppProcess();
@@ -11,6 +11,4 @@ public class PetCareApplication {
 		app.loginProcess();
 		app.reportProcess();
 	}
-
-
 }
