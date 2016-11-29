@@ -16,7 +16,7 @@ public class MemberReport extends Report{
 	}
 	
 	@Override
-	public void generateReport() {
+	public void generateReport(HashMap<String, TransactionObject> memberTransactions) {
 		
 	}
 
