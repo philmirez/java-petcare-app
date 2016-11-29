@@ -1,5 +1,7 @@
 package app.objects;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -34,8 +36,9 @@ public class StorePerformanceReport extends Report {
 		
 	}
 	
-    public String getProvidedMostServices() {
-		return providedMostServices;
+    public Store getProvidedMostServices() {
+    	Store maxStore = storeList.get(getMaxIndex(storeList));
+		return maxStore;
 	}
 
 	public void setProvidedMostServices(String providedMostServices) {
@@ -101,16 +104,35 @@ public class StorePerformanceReport extends Report {
 	    }
 	    return minIndex;
 	}
+	
+	private int getMaxIndex(ArrayList<Store> storeList) {
+	    int maxIndex = -1;
+	    double maxValue = Double.MIN_VALUE;
+	    for(int i = 0; i<storeList.size();i++) {
+	    	System.out.println(storeList.get(i).getStoreAddress() + " " + storeList.get(i).getTotalWeeklySales());
+	        double sales = storeList.get(i).getTotalWeeklySales();
+	        if(sales > maxValue) {
+	            maxValue = sales;
+	            maxIndex = i;
+	        }
+	    }
+	    return maxIndex;
+	}
 
 	/**
      * Basic toString() method for the StorePerformanceReport Object
      */
     public String toString() {
+    	NumberFormat mostWeekly = new DecimalFormat("#.##"); 
+    	NumberFormat leastWeekly = new DecimalFormat("#.##");
+    	NumberFormat ownerWeekly = new DecimalFormat("#.##");
+
+    	
     	System.out.println("StoreID: " + storeID);
         String output = "--- Store Performance Report ---";
-        output += "\nProvided Most Services: " + this.getProvidedMostServices();
-        output += "\n" + this.getProvidedLeastServices().getStoreAddress() + " provided Least Services: " + this.getProvidedLeastServices().getTotalWeeklySales(); 
-        output += "\nTotal Weekly Sales for " + storeList.get(storeID).getStoreAddress()  + " store: " + storeList.get(storeID).getTotalWeeklySales();
+        output += "\n" + this.getProvidedMostServices().getStoreAddress() + " provided Most Services: $" + mostWeekly.format(this.getProvidedMostServices().getTotalWeeklySales());
+        output += "\n" + this.getProvidedLeastServices().getStoreAddress() + " provided Least Services: $" + leastWeekly.format(this.getProvidedLeastServices().getTotalWeeklySales()); 
+        output += "\nTotal Weekly Sales for " + storeList.get(storeID).getStoreAddress()  + " store: $" + ownerWeekly.format(storeList.get(storeID).getTotalWeeklySales());
         return output;
     }
 
