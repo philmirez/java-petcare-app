@@ -42,11 +42,13 @@ public class StorePerformanceReport extends Report {
 		this.providedMostServices = providedMostServices;
 	}
 
-	public String getProvidedLeastServices() {
-		return providedLeastServices;
+	public Store getProvidedLeastServices() {
+		Store leastStore = storeList.get(getMinIndex(storeList));
+		return leastStore;
 	}
 
 	public void setProvidedLeastServices(String providedLeastServices) {
+		
 		this.providedLeastServices = providedLeastServices;
 	}
 
@@ -86,6 +88,19 @@ public class StorePerformanceReport extends Report {
 		
 		return weeklySales;
 	}
+	
+	private int getMinIndex(ArrayList<Store> storeList) {
+	    int minIndex = -1;
+	    double minValue = Double.MAX_VALUE;
+	    for(int i = 0; i<storeList.size();i++) {
+	        double sales = storeList.get(i).getTotalWeeklySales();
+	        if(sales < minValue) {
+	            minValue = sales;
+	            minIndex = i;
+	        }
+	    }
+	    return minIndex;
+	}
 
 	/**
      * Basic toString() method for the StorePerformanceReport Object
@@ -94,7 +109,7 @@ public class StorePerformanceReport extends Report {
     	System.out.println("StoreID: " + storeID);
         String output = "--- Store Performance Report ---";
         output += "\nProvided Most Services: " + this.getProvidedMostServices();
-        output += "\nProvided Least Services: " + this.getProvidedLeastServices(); 
+        output += "\n" + this.getProvidedLeastServices().getStoreAddress() + " provided Least Services: " + this.getProvidedLeastServices().getTotalWeeklySales(); 
         output += "\nTotal Weekly Sales for " + storeList.get(storeID).getStoreAddress()  + " store: " + storeList.get(storeID).getTotalWeeklySales();
         return output;
     }
