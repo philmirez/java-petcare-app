@@ -73,7 +73,7 @@ public class AppProcess {
 		
 		if(success == true)
 		{
-			appUI.alert("You are currently logged in as " + chainOwner.getUsername() + " for Store " + chainOwner.getStoreCity());			
+			appUI.alert("You are currently logged in as " + chainOwner.getFirstName() + " " + chainOwner.getLastName() + " for the " + chainOwner.getStoreCity() + " store.");			
 		}
 		else
 		{
