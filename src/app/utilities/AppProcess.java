@@ -115,7 +115,7 @@ public class AppProcess {
 		else if(reportType.equals("Member Reports"))
 		{
 			calculateDiscountProcess();
-			MemberReport memberActivity = new MemberReport(this.memberList, this.memberTransactions, thise.chainOwner.getStoreID());
+			MemberReport memberActivity = new MemberReport(this.memberList, this.memberTransactions, this.chainOwner.getStoreID());
 			System.out.println("Generating report for Store with ID " + this.chainOwner.getStoreID());
 			memberActivity.generateReport(memberTransactions);
 			appUI.alert(memberActivity.toString());

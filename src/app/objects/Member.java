@@ -1,4 +1,6 @@
 package app.objects;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 
 public class Member {
     private static final double MIN_TOTAL_FOR_DISCOUNT = 200.00;
@@ -20,6 +22,10 @@ public class Member {
         this.totalSpent = 0.00;
         this.discountAmount = 0.00;
         this.hasActiveDiscount = false;
+    }
+
+    public int getMemberID() {
+        return this.memberID;
     }
 
     public String getFirstName() {
@@ -87,16 +93,17 @@ public class Member {
     }
 
     public String toString() {
+        NumberFormat n = new DecimalFormat("#.##");
         String output = "--- Member Information ---";
         output = "\nName: " + (this.getFirstName() + " " + this.getLastName());
         output += "\nEmail: " + this.getEmail() + "\nPhone number: " + this.getPhoneNumber();
-        output += "\nTotal spent: $" + this.getTotalSpent();
+        output += "\nTotal spent: $" + n.format(this.getTotalSpent());
 
         if (this.getHasActiveDiscountStatus()) {
-            output += "\nThis Member currently has a discount amount of: " + this.getDiscountAmount() + "%.";
+            output += "\nThis Member currently has a discount amount of: $" + n.format(this.getDiscountAmount());
         } else {
             output += "\nThis Member does not currently have a discount.";
         }
-        return output;
+        return output + "\n";
     }
 }
