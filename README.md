@@ -31,8 +31,14 @@ This project will have the following classes (subject to change based on develop
 <br><br>
 1. ChainOwner.java - Used to instantiate Chain Owners, who are responsible for the upkeep of each Kroll Pet Care chain store. Chain Owners all have a first and last name, an email address and phone number, a username and password to log into the Administrative "back panel" (that we will implement through JOptionPane), and a store ID to which they belong.
 <br><br>
-2. Store.java - Used to instantiate a Store object that is used to store details about each Kroll Pet Care chain store. Each Store object has a store ID, an address, and hours of operation. As of now, we have created a basic implementation for this class, but it will be developed to fit the criteria needed for assigning a Performance Report to it, based on its activities and revenue generated.
+2. Member.java - Used to instantiate a Member object, which is a representation of an actual customer at Kroll Pet Care. In this project, members are primarily used to create TransactionObjects, since members can spend money at any of the stores, and their details can be used throughout the application.
 <br><br>
-3. Member.java - Used to instantiate a Member object, that is used to store details about the customers that visit Kroll Pet Care. Each member has a first and last name, an email address and phone number, the total amount they have spent at Kroll Pet Care, and a discount amount that applies to them, if they have spent over a certain amount (currently set to $200.00). Each Member also has an indication of whther or not they have an active discount available to use, and this discount functionality will be later built as a separate Discount class, that will allow discounts to expire and become available to use again.
+3. MemberReport.java - This class is used to create Member Reports, which are summaries of member activities, and their spending habits at Kroll Pet Care.
 <br><br>
-4. MemberNode.java - This is a Linked List implementation that will allow for the efficient storage of member data, so that it can be accessed sequentially, and new members can be added when and if necessary. The MemberNode object has a Member object for its data field, and a link to the next Member object as its link field. This will allow for our MemberReport implementation to easily traverse the list of members and provide a report, based on the functionality that will be implemented.
+4. Report.java - The abstract Report class which is extended by both the MemberReport and StorePerformanceReport classes.
+<br><br>
+5. Store.java - Used to instantiate a Store object that is used to store details about each Kroll Pet Care chain store. Each Store object has a store ID, an address, and hours of operation. As of now, we have created a basic implementation for this class, but it will be developed to fit the criteria needed for assigning a Performance Report to it, based on its activities and revenue generated.
+<br><br>
+6. StorePerformanceReport.java - Similar to the MemberReport class, this class is used to create a store report for each store upon request, and stores the relevant details and implementation logic to do so.
+<br><br>
+7. TransactionObject.java - A class used to create transaction objects, which allow records to be kept between stores and the chain owner in charge of them. The instantiation(s) of this TransactionObject class are used in a hashmap, and are referred to when creating both types of reports.
