@@ -172,22 +172,16 @@ public class UserInterface {
 				
 				if (username.getText().equals(coUsername) && password.getText().equals(coPassword)) 
 				{
-			    
-					System.out.println("Login successful: " + chainOwnerList.get(i));
 					chainOwnerList.get(i).setLoginStatus(true);
 					return chainOwnerList.get(i);
 			    } 
 				i++;
 			}
-			System.out.println("Login failed.");
 			return chainOwnerList.get(0);
 	        
 	        
 		} else {
-		    
-			System.out.println("Login cancelled.");
-			return chainOwnerList.get(0);
-			
+			return chainOwnerList.get(0);	
 		}
 		/**
 		 * TODO Create Possible values as constants

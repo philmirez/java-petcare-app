@@ -126,9 +126,7 @@ public class StorePerformanceReport extends Report {
     	NumberFormat mostWeekly = new DecimalFormat("#.##"); 
     	NumberFormat leastWeekly = new DecimalFormat("#.##");
     	NumberFormat ownerWeekly = new DecimalFormat("#.##");
-
-    	
-    	System.out.println("StoreID: " + storeID);
+		
         String output = "--- Store Performance Report ---";
         output += "\n" + this.getProvidedMostServices().getStoreAddress() + " provided Most Services: $" + mostWeekly.format(this.getProvidedMostServices().getTotalWeeklySales());
         output += "\n" + this.getProvidedLeastServices().getStoreAddress() + " provided Least Services: $" + leastWeekly.format(this.getProvidedLeastServices().getTotalWeeklySales()); 

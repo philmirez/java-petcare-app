@@ -36,8 +36,6 @@ public class AppProcess {
 		memberList.addAll(Utility.JSONreader("json/memberObjects.json"));
 		storeList.addAll(Utility.JSONreader("json/storeObjects.json"));
 		memberTransactions = Utility.convertTransactionCSVToHashMap("csv/member_transactions.csv");
-		
-
 	}
 	
 	public void loginProcess()
@@ -180,14 +178,7 @@ public class AppProcess {
 		
 	}
 	
-	public void calculateSalesProcess() {
-		
-		System.out.println((storeList.size()));
-		System.out.println((storeList.get(0)));
-		System.out.println((memberTransactions.get("CD290285")));
-		
-		
-		
+	public void calculateSalesProcess() {		
 		double amountSpent = 0;
 		Store storeX = new Store();
 		for (String key: memberTransactions.keySet()) {
