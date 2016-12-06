@@ -124,31 +124,7 @@ public class AppProcess {
 	
 	
 	public void signUpProcess(ArrayList<ChainOwner> chainOwnerList)
-	{/*
-		JTextField field1 = new JTextField();
-		JTextField field2 = new JTextField();
-		JTextField field3 = new JTextField();
-		JTextField field4 = new JTextField();
-		JTextField field5 = new JTextField();
-		JTextField field6 = new JTextField();
-		Object[] message = {
-		    "Store city:", field1,
-		    "Username:", field2,
-		    "Password:", field3,
-		    "E-mail:", field4,
-		    "First name:", field5,
-		    "Last name:", field6
-		};
-		int option = JOptionPane.showConfirmDialog(parent, message, "Enter all your values", JOptionPane.OK_CANCEL_OPTION);
-		if (option == JOptionPane.OK_OPTION)
-		{
-		    String value1 = field1.getText();
-		    String value2 = field2.getText();
-		    String value3 = field3.getText();
-		    String value4 = field4.getText();
-		    String value5 = field5.getText();
-		    String value6 = field5.getText();
-		}*/
+	{
 		appUI.alert("Please enter your details on the following screens to sign up as a Chain Owner.");
     	Object[] possibleValues = {"Fairfax Store", "Centreville Store", "Sterling Store"};
     	String storeCity = appUI.selectDropDown(possibleValues);

@@ -13,12 +13,12 @@ Install Ant: http://ant.apache.org/manual/install.html
 Maven Build Instructions 
 -------------
 Execute the following steps in the order presented (through a terminal or command prompt, when you are in the project directory) to run the project:
-<br>
-1. mvn clean
 <br><br>
-2. mvn compile
+1. mvn clean (cleans the built .class files, removing the entire target/ directory)
 <br><br>
-3. mvn exec:java
+2. mvn compile (compiles the classes in the src/ directory into a newly created target/directory)
+<br><br>
+3. mvn exec:java (executes the AppProcess.java class, which initializes the GUI for the project)
 
 User Credentials
 -------------
@@ -26,14 +26,12 @@ See chainOwnerObjects.json file in the json directory for credentials
 
 Introduction
 -------------
-
 This is the IT 306 Group Project repository, created by Phillip Ramirez and Usman Tahir. This repository contains the implementation for the Pet Care application assignment we were given, the document for which will also be included in the repository. The project has been developed in Java, with a build.xml file that is used for automated building and resource management for the project.
 
 As the project takes shape, this README will be updated, with procedures on how to build and run the project, as well as other pertinent details.
 
 Class details
 --------------
-
 This project will have the following classes (subject to change based on development):
 <br><br>
 1. ChainOwner.java - Used to instantiate Chain Owners, who are responsible for the upkeep of each Kroll Pet Care chain store. Chain Owners all have a first and last name, an email address and phone number, a username and password to log into the Administrative "back panel" (that we will implement through JOptionPane), and a store ID to which they belong.
