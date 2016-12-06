@@ -109,7 +109,6 @@ public class StorePerformanceReport extends Report {
 	    int maxIndex = -1;
 	    double maxValue = Double.MIN_VALUE;
 	    for(int i = 0; i<storeList.size();i++) {
-	    	System.out.println(storeList.get(i).getStoreAddress() + " " + storeList.get(i).getTotalWeeklySales());
 	        double sales = storeList.get(i).getTotalWeeklySales();
 	        if(sales > maxValue) {
 	            maxValue = sales;

@@ -108,7 +108,6 @@ public class AppProcess {
 		{
 			calculateSalesProcess();
 			String address = storeList.get(1).getStoreAddress();
-			System.out.println("Store : " + storeList);
 			// send in storeID and the store list
 			StorePerformanceReport storePerformance = new StorePerformanceReport(chainOwner.getStoreID(), this.storeList);
 			storePerformance.generateReport(memberTransactions);
@@ -118,7 +117,6 @@ public class AppProcess {
 		{
 			calculateDiscountProcess();
 			MemberReport memberActivity = new MemberReport(this.memberList, this.memberTransactions, this.chainOwner.getStoreID());
-			System.out.println("Generating report for Store with ID " + this.chainOwner.getStoreID());
 			memberActivity.generateReport(memberTransactions);
 			appUI.alert(memberActivity.toString());
 		}
