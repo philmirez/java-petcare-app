@@ -12,6 +12,8 @@ Install Ant: http://ant.apache.org/manual/install.html
 
 Maven Build Instructions 
 -------------
+Execute the following steps in the order presented (through a terminal or command prompt, when you are in the project directory) to run the project:
+<br>
 1. mvn clean
 <br><br>
 2. mvn compile
@@ -22,15 +24,12 @@ User Credentials
 -------------
 See chainOwnerObjects.json file in the json directory for credentials
 
-
 Introduction
 -------------
 
 This is the IT 306 Group Project repository, created by Phillip Ramirez and Usman Tahir. This repository contains the implementation for the Pet Care application assignment we were given, the document for which will also be included in the repository. The project has been developed in Java, with a build.xml file that is used for automated building and resource management for the project.
 
 As the project takes shape, this README will be updated, with procedures on how to build and run the project, as well as other pertinent details.
-
-<br>
 
 Class details
 --------------
