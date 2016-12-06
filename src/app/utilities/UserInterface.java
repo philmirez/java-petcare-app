@@ -154,17 +154,16 @@ public class UserInterface {
 		
 		JTextField username = new JTextField();
 		JTextField password = new JPasswordField();
-		Object[] field = {
-		    "Username:", username,
-		    "Password:", password
-		};
 
-		int option = JOptionPane.showConfirmDialog(null, field, message, JOptionPane.OK_CANCEL_OPTION);
+		Object[] loginMenuOptions = {"Login", "Create an account", "Cancel"};
+		Object[] loginInfo = {message, "Username", username, "Password", password};
+
+		int option = JOptionPane.showOptionDialog(null, loginInfo, "Kroll Pet Care", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, loginMenuOptions, loginMenuOptions[0]);
 
 		int i = 0;
 		int coSize = chainOwnerList.size();
 		
-		if (option == JOptionPane.OK_OPTION) {
+		if (option == 0) {
 			while(i<coSize)
 			{
 				String coUsername = chainOwnerList.get(i).getUsername();
@@ -178,17 +177,13 @@ public class UserInterface {
 				i++;
 			}
 			return chainOwnerList.get(0);
-	        
-	        
+		} else if (option == 1) {
+			AppProcess a = new AppProcess();
+			a.signUpProcess(chainOwnerList);
+			return chainOwnerList.get(chainOwnerList.size() - 1);
 		} else {
 			return chainOwnerList.get(0);	
 		}
-		/**
-		 * TODO Create Possible values as constants
-		 */
-		//Object[] possibleValues = { "Performance Report", "Member Report" };
-		//displayDropDownStoreMessage(possibleValues);
-
 	}
 
 	public String tryAgainOrSignUpPage()

@@ -22,12 +22,16 @@ public class AppProcess {
 	HashMap<String, TransactionObject> memberTransactions;
 	
 	public AppProcess() {
-		appUI = new UserInterface();
-		chainOwner = new ChainOwner();
-		chainOwnerList = new ArrayList<ChainOwner>();
-		memberList = new ArrayList<Member>();
-		storeList = new ArrayList<Store>();
-		memberTransactions = new HashMap<String, TransactionObject>();
+		this.appUI = new UserInterface();
+		this.chainOwner = new ChainOwner();
+		this.chainOwnerList = new ArrayList<ChainOwner>();
+		this.memberList = new ArrayList<Member>();
+		this.storeList = new ArrayList<Store>();
+		this.memberTransactions = new HashMap<String, TransactionObject>();
+	}
+
+	public UserInterface getAppUI() {
+		return this.appUI;
 	}
 	
 	public void readDataProcess()
@@ -150,15 +154,14 @@ public class AppProcess {
 		appUI.alert("Please enter your details on the following screens to sign up as a Chain Owner.");
     	Object[] possibleValues = {"Fairfax Store", "Centreville Store", "Sterling Store"};
     	String storeCity = appUI.selectDropDown(possibleValues);
-    	String username = appUI.validateJOptionPane("Username: ", 0);
-    	String password = appUI.validateJOptionPane("Password: ", 0);
-    	String email = appUI.validateJOptionPane("email: ", 0);
-    	String firstName = appUI.validateJOptionPane("first name: ", 0);
-    	String lastName = appUI.validateJOptionPane("last name: ", 0);
+    	String username = appUI.validateJOptionPane("Username", 0);
+    	String password = appUI.validateJOptionPane("Password", 0);
+    	String email = appUI.validateJOptionPane("Email", 0);
+    	String firstName = appUI.validateJOptionPane("First name", 0);
+    	String lastName = appUI.validateJOptionPane("Last name", 0);
     	List<Object> list = Arrays.asList(possibleValues);
     	int storeID = list.indexOf(storeCity);
     	int userID = chainOwnerList.size() + 1;
-    	System.out.println("firstName: " + firstName + "\nlastName: " + lastName + "\nstoreCity: " + storeCity + "\nstoreID: " + storeID);
     	
     	ChainOwner newSignUp = new ChainOwner();
     	newSignUp.setStoreCity(storeCity);
@@ -175,7 +178,7 @@ public class AppProcess {
     	Utility.JSONwriter(chainOwnerList, "json/chainOwnerObjects.json");
 
     	appUI.alert("Sign up was successful!");
-		
+			appUI.loginPage(chainOwnerList);
 	}
 	
 	public void calculateSalesProcess() {		
